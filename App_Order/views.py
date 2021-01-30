@@ -14,6 +14,7 @@ from App_Login.models import User
 from django.contrib.auth.decorators import login_required
 # from App_Order.models import Order,Cart
 
+@login_required
 def add_to_cart(request,pk):
     item=get_object_or_404(Product,pk=pk)
     cart_item=Cart.objects.get_or_create(user=request.user,item=item,purchased=False)
